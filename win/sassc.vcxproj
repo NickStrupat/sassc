@@ -83,16 +83,18 @@
     <TargetName>sassc</TargetName>
     <OutDir>$(SolutionDir)..\bin\</OutDir>
     <IntDir>$(SolutionDir)..\bin\obj</IntDir>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>sassc</TargetName>
     <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>$(SolutionDir)bin\obj\</IntDir>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>..;posix;..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;posix;..\libsass;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -156,6 +158,46 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libsass\ast.cpp" />
+    <ClCompile Include="..\libsass\base64vlq.cpp" />
+    <ClCompile Include="..\libsass\bind.cpp" />
+    <ClCompile Include="..\libsass\cencode.c" />
+    <ClCompile Include="..\libsass\constants.cpp" />
+    <ClCompile Include="..\libsass\context.cpp" />
+    <ClCompile Include="..\libsass\contextualize.cpp" />
+    <ClCompile Include="..\libsass\contextualize_eval.cpp" />
+    <ClCompile Include="..\libsass\cssize.cpp" />
+    <ClCompile Include="..\libsass\emitter.cpp" />
+    <ClCompile Include="..\libsass\error_handling.cpp" />
+    <ClCompile Include="..\libsass\eval.cpp" />
+    <ClCompile Include="..\libsass\expand.cpp" />
+    <ClCompile Include="..\libsass\extend.cpp" />
+    <ClCompile Include="..\libsass\file.cpp" />
+    <ClCompile Include="..\libsass\functions.cpp" />
+    <ClCompile Include="..\libsass\inspect.cpp" />
+    <ClCompile Include="..\libsass\json.cpp" />
+    <ClCompile Include="..\libsass\lexer.cpp" />
+    <ClCompile Include="..\libsass\listize.cpp" />
+    <ClCompile Include="..\libsass\node.cpp" />
+    <ClCompile Include="..\libsass\output.cpp" />
+    <ClCompile Include="..\libsass\parser.cpp" />
+    <ClCompile Include="..\libsass\plugins.cpp" />
+    <ClCompile Include="..\libsass\position.cpp" />
+    <ClCompile Include="..\libsass\prelexer.cpp" />
+    <ClCompile Include="..\libsass\remove_placeholders.cpp" />
+    <ClCompile Include="..\libsass\sass.cpp" />
+    <ClCompile Include="..\libsass\sass2scss.cpp" />
+    <ClCompile Include="..\libsass\sass_context.cpp" />
+    <ClCompile Include="..\libsass\sass_functions.cpp" />
+    <ClCompile Include="..\libsass\sass_interface.cpp" />
+    <ClCompile Include="..\libsass\sass_util.cpp" />
+    <ClCompile Include="..\libsass\sass_values.cpp" />
+    <ClCompile Include="..\libsass\source_map.cpp" />
+    <ClCompile Include="..\libsass\to_c.cpp" />
+    <ClCompile Include="..\libsass\to_string.cpp" />
+    <ClCompile Include="..\libsass\units.cpp" />
+    <ClCompile Include="..\libsass\utf8_string.cpp" />
+    <ClCompile Include="..\libsass\util.cpp" />
     <ClCompile Include="posix\getopt.c" />
     <ClCompile Include="..\..\*.cpp" />
     <ClCompile Include="..\..\*.c" />
@@ -164,6 +206,61 @@
   <ItemGroup>
     <ClInclude Include="..\..\*.hpp" />
     <ClInclude Include="..\..\*.h" />
+    <ClInclude Include="..\libsass\ast.hpp" />
+    <ClInclude Include="..\libsass\ast_def_macros.hpp" />
+    <ClInclude Include="..\libsass\ast_factory.hpp" />
+    <ClInclude Include="..\libsass\ast_fwd_decl.hpp" />
+    <ClInclude Include="..\libsass\backtrace.hpp" />
+    <ClInclude Include="..\libsass\base64vlq.hpp" />
+    <ClInclude Include="..\libsass\bind.hpp" />
+    <ClInclude Include="..\libsass\color_names.hpp" />
+    <ClInclude Include="..\libsass\constants.hpp" />
+    <ClInclude Include="..\libsass\context.hpp" />
+    <ClInclude Include="..\libsass\contextualize.hpp" />
+    <ClInclude Include="..\libsass\contextualize_eval.hpp" />
+    <ClInclude Include="..\libsass\cssize.hpp" />
+    <ClInclude Include="..\libsass\debug.hpp" />
+    <ClInclude Include="..\libsass\debugger.hpp" />
+    <ClInclude Include="..\libsass\emitter.hpp" />
+    <ClInclude Include="..\libsass\environment.hpp" />
+    <ClInclude Include="..\libsass\error_handling.hpp" />
+    <ClInclude Include="..\libsass\eval.hpp" />
+    <ClInclude Include="..\libsass\expand.hpp" />
+    <ClInclude Include="..\libsass\extend.hpp" />
+    <ClInclude Include="..\libsass\file.hpp" />
+    <ClInclude Include="..\libsass\functions.hpp" />
+    <ClInclude Include="..\libsass\inspect.hpp" />
+    <ClInclude Include="..\libsass\json.hpp" />
+    <ClInclude Include="..\libsass\kwd_arg_macros.hpp" />
+    <ClInclude Include="..\libsass\lexer.hpp" />
+    <ClInclude Include="..\libsass\listize.hpp" />
+    <ClInclude Include="..\libsass\mapping.hpp" />
+    <ClInclude Include="..\libsass\memory_manager.hpp" />
+    <ClInclude Include="..\libsass\node.hpp" />
+    <ClInclude Include="..\libsass\operation.hpp" />
+    <ClInclude Include="..\libsass\output.hpp" />
+    <ClInclude Include="..\libsass\parser.hpp" />
+    <ClInclude Include="..\libsass\paths.hpp" />
+    <ClInclude Include="..\libsass\plugins.hpp" />
+    <ClInclude Include="..\libsass\position.hpp" />
+    <ClInclude Include="..\libsass\prelexer.hpp" />
+    <ClInclude Include="..\libsass\remove_placeholders.hpp" />
+    <ClInclude Include="..\libsass\sass.h" />
+    <ClInclude Include="..\libsass\sass2scss.h" />
+    <ClInclude Include="..\libsass\sass_context.h" />
+    <ClInclude Include="..\libsass\sass_functions.h" />
+    <ClInclude Include="..\libsass\sass_interface.h" />
+    <ClInclude Include="..\libsass\sass_util.hpp" />
+    <ClInclude Include="..\libsass\sass_values.h" />
+    <ClInclude Include="..\libsass\sass_version.h" />
+    <ClInclude Include="..\libsass\source_map.hpp" />
+    <ClInclude Include="..\libsass\subset_map.hpp" />
+    <ClInclude Include="..\libsass\to_c.hpp" />
+    <ClInclude Include="..\libsass\to_string.hpp" />
+    <ClInclude Include="..\libsass\units.hpp" />
+    <ClInclude Include="..\libsass\utf8.h" />
+    <ClInclude Include="..\libsass\utf8_string.hpp" />
+    <ClInclude Include="..\libsass\util.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
